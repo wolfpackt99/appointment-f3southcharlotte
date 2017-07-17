@@ -1,0 +1,16 @@
+﻿{{#.}}
+<div class="ao">
+    <p class='lead'>{{day}} - {{date}}</p>
+    <ul class='list-group'>
+        {{#items}}
+        <li class="list-group-item">
+            {{name}} - {{description}}
+            {{#preblast}} <a href='{{preblast}}' target="_blank"><span class='label label-info'>preblast</span></a>{{/preblast}}
+            {{#tag}} <span class='label label-success'>{{tag}}</span>{{/tag}}
+            <span class="pull-right"><a href="https://maps.google.com?q={{location}}"><span class="glyphicon glyphicon-map-marker"></span></a></span>
+        </li>
+        {{/items}}
+
+    </ul>
+</div>
+{{/.}}

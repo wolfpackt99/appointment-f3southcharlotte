@@ -3,6 +3,69 @@ Theme Name: Appointment f3 south charlotte
 Author: Wingman
 Description:Theme for f3 south charlotte.
 Tags: full-width-template, threaded-comments, two-columns,  right-sidebar, sticky-post, custom-menu, translation-ready, blog, portfolio, footer-widgets, featured-images, featured-image-header, custom-header
-Version: 0.0.1
+Version: 0.0.2
 Text Domain: appointment-f3southcharlotte
+Template: appointment
 */
+
+/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+.categories {
+    margin-bottom: 10px;
+}
+
+.categories a {
+    background-color: #b73e2e;
+    padding: 4px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.categories.gray a{
+	background-color: gray;
+}
+
+.page-title-section .overlay {
+	padding: 20px 0 20px
+}
+
+.page-title h1 {
+	font-size: 20px;
+}
+
+.page-title-section .page-title {
+	padding: 10px 0;
+}
+
+select.wpcf7-form-control, input.wpcf7-text{
+width: 100% !important;
+}
+.Service-section {
+	padding: 80px 0 0;
+}
+.blog-section {
+	padding: 0 0 25px
+}
+
+*.icon-green {color: green !important; }
+*.icon-gray {color: gray 
+ !important;}
+*.icon-brown {color: brown !important;}
+*.icon-blue {color: blue !important;}
+*.icon-silver { color: silver !important; }
+
+.sidebar-widget {
+    margin-bottom: 15px;
+}
+
+.page-builder{
+    padding: 30px 0 0;
+}
+
+table{
+    table-layout: auto;
+}

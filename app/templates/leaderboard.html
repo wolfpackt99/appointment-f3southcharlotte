@@ -1,0 +1,31 @@
+﻿<div class="table-responsive">
+    <div ng-show="vm.showStrava">
+        <a href="" ng-click="vm.login()"><img src="/wp-content/themes/f3southcharlotte/app/LogInWithStrava.png"/></a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>&nbsp; </th>
+            <th>Name</th>
+            <th>Activity Count</th>
+            <th>Running</th>
+            <th>Total Miles</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cal in vm.list | orderBy:['-Running','-ActivityCounty'] track by $index">
+            <td><img src="{{cal.ProfilePic}}" width="25" height="25"/></td>
+            <td>
+                <a href="" ng-click="vm.getStatsByUser(cal)">{{cal.LastName}}</a>
+                <div id="{{cal.StravaId}}" ng-show="cal.ShowStats">
+                    <span class="label label-info" style="margin: 3px;" ng-repeat="stat in cal.Stats">{{stat.Activity}} {{stat.Mileage | number:2}}</span>
+                </div>
+            </td>
+            <td>{{cal.ActivityCount}}</td>
+            <td>{{cal.Running | number:2}}</td>
+            <td>{{cal.TotalMiles | number:2}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

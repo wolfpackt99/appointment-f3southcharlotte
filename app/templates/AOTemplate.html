@@ -1,0 +1,17 @@
+﻿{{#.}}
+<div data-name="{{name}}" class="ao">
+    <p class='lead'>{{summary}}</p>
+    <ul class='list-group'>
+        {{#items}}
+        <li class="list-group-item">
+            {{displayDate}} - {{Summary}}
+            {{#preblast}} <a href='{{preblast}}' target="_blank"><span class='label label-info'>preblast</span></a>{{/preblast}}
+            {{#tag}} <span class='label label-success'>{{tag}}</span>{{/tag}}
+        </li>
+        {{/items}}
+        {{^items.0}}
+        <li class="list-group-item">Upcoming Q schedule is empty</li>
+        {{/items.0}}
+    </ul>
+</div>
+{{/.}}

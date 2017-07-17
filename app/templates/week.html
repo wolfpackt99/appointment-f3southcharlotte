@@ -1,0 +1,23 @@
+﻿<br />
+<div role="tabpanel" class="tab-pane active" id="current">
+    <div class="ao" ng-repeat="day in vm.items | orderBy :['Datum']">
+        <p><strong>{{day.Day}} - {{day.Date}} </strong></p>
+        <ul class='list-group'>
+            <li class="list-group-item" ng-repeat="ev in filtered = (day.Items | filter: { Region: vm.selectedRegion } | orderBy: 'CalendarName')">
+                {{ev.CalendarName}} - {{ev.Title}}
+                <a href='{{ev.Preblast}}' target="_blank" ng-show="ev.Preblast"><span class='label label-info'>preblast</span></a>
+                <span class='label label-success' ng-show="ev.Tag">{{ev.Tag}}</span>
+                <span class='label label-warning' ng-show="ev.IsCustomDateTime">alert</span>
+                <span class="pull-right" ng-show="!ev.IsCustomDateTime"><small>{{ev.Time}}</small> <a href="https://maps.google.com?q={{ev.Location}}"><span class="glyphicon glyphicon-map-marker"></span></a></span>
+                <span class="pull-right" ng-show="ev.IsCustomDateTime">
+                    <small ng-show="!ev.IsAllDay">{{ev.StartTimeFormat}}-{{ev.EndTimeFormat}}</small>
+                    <small ng-show="ev.IsAllDay">All Day</small>
+                    <a href="https://maps.google.com?q={{ev.Location}}"><span class="glyphicon glyphicon-map-marker"></span></a>
+                </span>
+                <div ng-show="ev.IsCustomDateTime"><a href="https://maps.google.com?q={{ev.Location}}">{{ev.Location}}</a></div>
+                <small ng-show="ev.CustomDescription">{{ev.CustomDescription}}</small>
+            </li>
+            <li class="list-group-item" ng-if="filtered.length === 0">No entries found. Check various twitter accounts.</li>
+        </ul>
+    </div>
+</div>

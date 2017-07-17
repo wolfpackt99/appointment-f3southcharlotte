@@ -1,0 +1,22 @@
+﻿<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="130">Name</th>
+                <th>Day</th>
+                <th>Site Q</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#.}}
+            <tr>
+                <td>{{Summary}}{{#Time}}<br/>{{Time}}{{/Time}} </td>
+                <td>{{Meets}}{{#SignupLink}}<br /><a href="{{SignupLink}}" class="btn btn-xs btn-primary">sign up</a>{{/SignupLink}}</td>
+                <td>{{SiteQ}}</td>
+                <td><a href="https://www.google.com/maps?q={{Location}}"><span class="glyphicon glyphicon-map-marker"></span> {{DisplayLocation}}</a><br />{{#LocationHint}}({{LocationHint}}){{/LocationHint}}</td>
+            </tr>
+            {{/.}}
+        </tbody>
+    </table>
+</div>

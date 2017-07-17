@@ -9,6 +9,11 @@ function appointment_f3southcharlotte_theme_css() {
 	wp_enqueue_style( 'element-style', get_template_directory_uri() . '/css/element.css' );
 	wp_enqueue_style( 'media-responsive' ,get_template_directory_uri() . '/css/media-responsive.css');
 	wp_dequeue_style('appointment-default',get_template_directory_uri() .'/css/default.css');
+	wp_enqueue_style( 'child-style',
+		get_stylesheet_directory_uri() . '/style.css',
+		array( 'parent-style' ),
+		wp_get_theme()->get('Version')
+	);
 }
 
 /*
