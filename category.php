@@ -1,57 +1,30 @@
 <?php
-
   get_header(); ?>
-
 <!-- Page Title Section -->
-
 <div class="page-title-section">		
-
 	<div class="overlay">
-
 		<div class="container">
-
 			<div class="row">
-
-				<div class="col-md-6">
-
+				<div class="col-md-8">
 					<div class="page-title"><h1><?php echo _e('','appointment'); echo ''; echo single_cat_title("", false); ?></h1></div>
-
 				</div>
-
-				<div class="col-md-6">
-
-					<ul class="page-breadcrumb">
-
-						<?php if (function_exists('qt_custom_breadcrumbs')) qt_custom_breadcrumbs();?>
-
-					</ul>
-
+				<div class="col-md-4">
+					<form action="http://f3southcharlotte.com/" method="get">
+						<input type="text" class="search_widget_input" name="s" id="s" placeholder="Search" data-cip-id="s">
+					</form>
 				</div>
-
 			</div>
-
 		</div>	
-
 	</div>
-
 </div>
-
 <div class="page-builder">
-
 	<div class="container">
-
 		<div class="row">
-
 			<!-- Blog Area -->
-
 			<div class="<?php appointment_post_layout_class(); ?>" >
-
 			   <?php 
-
 				if ( have_posts() ) :
-
 					// Start the Loop.
-
 					while (have_posts()) : the_post(); 
 						?>
 						<div class="col-md-12">
@@ -77,7 +50,6 @@
 										<p><?php echo get_home_blog_excerpt(); ?></p>
 										<?
 										$num_comments = get_comments_number(); // get_comments_number returns only a numeric value
-
 										if ( comments_open() ) {
 											if ( $num_comments == 0 ) {
 												$comments = __('No Comments');
@@ -97,39 +69,21 @@
 						</div>
 					</div>
 					<?php endwhile;
-
 				endif;
-
 				// Previous/next page navigation.
-
 				the_posts_pagination( array(
-
 				'prev_text'          => '<i class="fa fa-angle-double-left"></i>',
-
 				'next_text'          => '<i class="fa fa-angle-double-right"></i>',
-
 				) );
-
 				?>
-
 			<!-- /Blog Pagination -->
-
 			</div>
-
 			<!--Sidebar Area-->
-
 			<div class="col-md-4">
-
 				<?php get_sidebar(); ?>
-
 			</div>
-
 			<!--Sidebar Area-->
-
 		</div>
-
 	</div>
-
 </div>
-
 <?php get_footer(); ?>

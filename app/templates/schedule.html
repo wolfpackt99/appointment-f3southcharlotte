@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="cal in vm.list | filter: { Region: vm.selectedRegion } |orderBy:['DayOfWeek','Name']">
-                <td>{{cal.Name}}<br />{{cal.Time}}</td>
+                <td><a href='/category/{{cal.Name}}'>{{cal.Name}}</a><br />{{cal.Time}}</td>
                 <td>{{cal.Meets}}<br /><a href="{{cal.SignupLink}}" class="btn btn-xs btn-primary" ng-show="cal.SignupLink">sign up</a></td>
                 <td><a href="https://www.google.com/maps?q={{cal.Location}}"><span class="glyphicon glyphicon-map-marker"></span> {{cal.DisplayLocation}}</a><br /><span ng-show="cal.LocationHint">({{cal.LocationHint}})</span></td>
                 <td>{{cal.SiteQ}}</td>

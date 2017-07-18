@@ -5,7 +5,7 @@
 	<div class="overlay">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<div class="page-title">
 						<h1>
 						<?php 
@@ -16,10 +16,10 @@
 						</h1>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<ul class="page-breadcrumb">
-						<?php if (function_exists('qt_custom_breadcrumbs')) qt_custom_breadcrumbs();?>
-					</ul>
+				<div class="col-md-4">
+					<form action="http://f3southcharlotte.com/" method="get">
+						<input type="text" class="search_widget_input" name="s" id="s" placeholder="Search" data-cip-id="s">
+					</form>
 				</div>
 			</div>
 		</div>	
