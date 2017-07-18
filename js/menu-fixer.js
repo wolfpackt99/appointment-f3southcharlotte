@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
         jQuery("#menu-main li").removeClass("active").each(function(i,item){
             var $this = jQuery(item);
             console.log($this.data("url") + " :: " + window.location.href);
-            if ($this.data('url') == window.location){
+            if ($this.find("a").attr("href") == window.location){
                 $this.addClass("active");
             }
         });
