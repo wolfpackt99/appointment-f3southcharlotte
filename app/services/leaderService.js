@@ -5,7 +5,7 @@
         factory.getLeaders = function (successCallback, errCallback) {
             $http({
                 method: "GET",
-                url: "/leaderboard/_index",
+                url: "https://f3sclt.apphb.com/leaderboard/_index",
                 headers: {
                     'Content-Type': 'json'
                 },
@@ -19,7 +19,7 @@
         factory.getStatsByUser = function(id, callback, errCallback) {
             $http({
                 method: "GET",
-                url: "/leaderboard/getstatsbyuser/" + id,
+                url: "https://f3sclt.apphb.com/leaderboard/getstatsbyuser/" + id,
                 headers: {
                     'Content-Type': 'json'
                 },

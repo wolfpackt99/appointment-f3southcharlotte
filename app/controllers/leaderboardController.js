@@ -1,7 +1,7 @@
 ﻿(function () {
-    var injectParams = ['leaderboardService', 'regionService', '$rootScope', '$location', '$http', '$cookies','$route'];
+    var injectParams = ['leaderboardService', 'regionService', '$rootScope', '$location', '$http', '$cookies','$route','$sce'];
 
-    var leaderboardController = function (leaderboardService, regionService, $rootScope, $location, $http, $cookies, $route) {
+    var leaderboardController = function (leaderboardService, regionService, $rootScope, $location, $http, $cookies, $route, $sce) {
         var vm = this;
         vm.showStrava = false;
 
@@ -23,7 +23,7 @@
             var data = {
                 code: $location.search().code
             };
-            $http.post("/Leaderboard/SetAuth", data)
+            $http.get("https://f3sclt.apphb.com/Leaderboard/SetAuth?code=" + data.code)
                 .then(function (resp) {
                     success(resp.data);
                     leaderboardService.getLeaders(function (data) {
@@ -58,7 +58,7 @@
         vm.login = function () {
             document.location.href = "https://www.strava.com/oauth/authorize?client_id=9524" +
                 "&response_type=code&" +
-                "redirect_uri=https://f3sclt.apphb.com/schedule%23/stats/&" +
+                "redirect_uri=http://f3southcharlotte.com/schedule-app/%23/stats/&" +
                 "scope=view_private&" +
                 "state=stats&" +
                 "approval_prompt=force";

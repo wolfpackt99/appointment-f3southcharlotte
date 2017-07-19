@@ -12,8 +12,14 @@
     'ngCookies'
     ]);
 
-    app.config(function ($routeProvider) {
-
+    app.config(function ($routeProvider, $sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'https://f3sclt.apphb.com/**'
+        ]);
+        
         $routeProvider.when('/', {
             controller: 'WeekController',
             templateUrl: '/wp-content/themes/appointment-f3southcharlotte/app/templates/week.html',
