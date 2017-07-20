@@ -70,9 +70,11 @@ add_filter( 'rwmb_meta_boxes', 'the_pax_gen' );
 /* enable tclaps by filter on the_content */
 function filter_content_div($content)
 {
-	$postmetacontent = tclaps_snippet();
-	$content = $content . $postmetacontent;
-
+	global $post;
+	if($post->post_type == 'post') {
+		$postmetacontent = tclaps_snippet();
+		$content = $content . $postmetacontent;
+	}
 	return $content;
 }
 
@@ -87,6 +89,7 @@ function tclaps_snippet() {
 	$snippet = '<div class="tclapsection">';
 	$snippet .= ' <div class="tclapsbox user_tclap">';
 	$snippet .= '  <button id="btn-tclap" type="button" class="btn btn-default btn-xs" data-post_id="' . $post->ID . '">';
+	$snippet .= '   <i class="fa fa-spinner fa-pulse fa-fw" style="display:none;"></i>';
 	$snippet .= '   <i class="fa fa-thumbs-up" aria-hidden="true"></i> #tclap | <span class="tclap-counter">' . $tclaps . '</span>';
 	$snippet .= '  </button>';
 	$snippet .= ' </div>';
