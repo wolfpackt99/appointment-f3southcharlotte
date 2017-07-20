@@ -57,28 +57,6 @@ if ( is_active_sidebar( 'footer-widget-area' ) ) { ?>
 <!--/Scroll To Top--> 
 <?php wp_footer(); ?>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script type="application/javascript">
-
-function resizeIFrameToFitContent( iFrame ) {
-
-    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
-    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-}
-
-window.addEventListener('DOMContentLoaded', function(e) {
-
-    var iFrame = document.getElementById( 'iFrame1' );
-    resizeIFrameToFitContent( iFrame );
-
-    // or, to resize all iframes:
-    var iframes = document.querySelectorAll("iframe");
-    for( var i = 0; i < iframes.length; i++) {
-        resizeIFrameToFitContent( iframes[i] );
-    }
-} );
-
-
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

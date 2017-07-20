@@ -12,9 +12,15 @@ function appointment_f3southcharlotte_theme_css() {
 	wp_enqueue_style( 'element-style', get_template_directory_uri() . '/css/element.css' );
 	wp_enqueue_style( 'media-responsive' ,get_template_directory_uri() . '/css/media-responsive.css');
 	wp_dequeue_style('appointment-default', get_template_directory_uri() .'/css/default.css');
+	
+	wp_register_script( 'jquery-cookie', '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'jquery-cookie' );
 
-	wp_enqueue_script('menu-fixer-js', get_stylesheet_directory_uri() .'/js/menu-fixer.js');
-	wp_enqueue_script('functions-js', get_stylesheet_directory_uri() .'/js/functions.js');
+	wp_register_script('menu-fixer-js', get_stylesheet_directory_uri() .'/js/menu-fixer.js', array('jquery'), null, true );
+	wp_enqueue_script('menu-fixer-js');
+
+	wp_register_script('functions-js', get_stylesheet_directory_uri() .'/js/functions.js', array('jquery'), null, true );
+	wp_enqueue_script('functions-js');
 	wp_localize_script( 'functions-js', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
 	wp_enqueue_style( 'child-style',
 		get_stylesheet_directory_uri() . '/style.css',

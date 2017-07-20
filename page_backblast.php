@@ -62,6 +62,10 @@ get_template_part('index','banner'); ?>
 									$write_comments =  __('Comments are off for this post.');
 								} 
 								echo $write_comments;
+
+								$tclap_count = get_post_meta(get_the_ID(), "tclaps", true);
+								$tclap_count = ($tclap_count == '') ? 0 : $tclap_count;
+								echo " | " . $tclap_count . " #tclaps"
 								?>
 							</div>
 						</div>
