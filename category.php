@@ -71,10 +71,7 @@
 					<?php endwhile;
 				endif;
 				// Previous/next page navigation.
-				the_posts_pagination( array(
-				'prev_text'          => '<i class="fa fa-angle-double-left"></i>',
-				'next_text'          => '<i class="fa fa-angle-double-right"></i>',
-				) );
+				wp_pagenavi();
 				?>
 			<!-- /Blog Pagination -->
 			</div>

@@ -80,8 +80,10 @@ if($news_setting['home_blog_enabled'] == 0 ) { ?>
 			     echo '<div class="clearfix"></div>';
 				 $i=0;
 			  }$i++;
-			  wp_reset_postdata();
-			endwhile;  ?>
+			 
+			endwhile; 
+			 wp_reset_postdata();
+			  ?>
 		</div>
 	</div>
 <?php } ?>

@@ -217,7 +217,7 @@ class TClap_Widget extends WP_Widget{
 					$listItem = '<li>';
 					$listItem .= '<a href="' . get_permalink() . '">';
 					$listItem .= get_the_title() . '</a>';
-					$listItem .= ' (' . $tclap_count . ')</li>';
+					$listItem .= '<span class="post-stats"><span class"wpp-comments">' . $tclap_count . ' #tclaps</span></span></li>';
 					echo $listItem;
 				}
 			echo '</ul>';
