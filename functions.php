@@ -52,7 +52,7 @@ function the_pax_gen( $meta_boxes ) {
 				'id' => $prefix . 'workout_date',
 				'type' => 'text',
 				'name' => esc_html__( 'Workout Date - MM/DD/YYYY', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'Please use this exact format: MM/DD/YY This will show up at the posts top under the "When:" heading PLUS be a part of the title.', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'Please use this exact format: MM/DD/YYYY This will show up at the posts top under the "When:" heading PLUS be a part of the title.', 'metabox-online-generator' ),
 			),
 			array(
 				'id' => $prefix . 'the_pax',
