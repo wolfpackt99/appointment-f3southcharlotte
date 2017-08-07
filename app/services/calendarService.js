@@ -52,7 +52,7 @@
                     item.Time = json.Time;
                     item.SignupLink = json.SignupLink;
                     item.Region = json.Region;
-                    
+                    setSlug(item, json);
 
                 } catch (e) {
                     item.SiteQ = item.Description;
@@ -63,9 +63,20 @@
                     item.SignupLink = null;
                 }
             });
-            
         }
 
+        function setSlug(item, json)
+        {
+            if (json.hasOwnProperty("slug")){
+                item.Slug = json.slug;
+                return;
+            }
+            var slug = item.Name;
+            slug = slug.replace(/'/g, '');
+            slug = slug.replace(/ /g, '-');
+            item.Slug = slug;
+            return;
+        }
         function massageThisWeek(x) {
             angular.forEach(x, function (item, i) {
                 try {
