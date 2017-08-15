@@ -2,8 +2,7 @@
     var injectParams = [];
     var regionFactory = function () {
         var factory = {
-            regions: [
-            {
+            regions: [{
                 id: 0,
                 label: 'All Regions',
                 val: ''

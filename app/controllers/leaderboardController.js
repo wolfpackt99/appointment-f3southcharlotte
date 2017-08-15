@@ -1,7 +1,7 @@
 ﻿(function () {
-    var injectParams = ['leaderboardService', 'regionService', '$rootScope', '$location', '$http', '$cookies','$route','$sce'];
+    var injectParams = ['leaderboardService', 'regionService', 'typeService', '$rootScope', '$location', '$http', '$cookies','$route','$sce'];
 
-    var leaderboardController = function (leaderboardService, regionService, $rootScope, $location, $http, $cookies, $route, $sce) {
+    var leaderboardController = function (leaderboardService, regionService, typeService, $rootScope, $location, $http, $cookies, $route, $sce) {
         var vm = this;
         vm.showStrava = false;
 
@@ -47,7 +47,10 @@
         $rootScope.title = 'Stats';
 
         $rootScope.regions = regionService.regions;
+        $rootScope.types = typeService.types;
+
         $rootScope.region = $rootScope.regions[0];
+        $rootScope.type = $rootScope.type[0];
 
         vm.selectedRegion = '';
 

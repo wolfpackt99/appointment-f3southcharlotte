@@ -17,10 +17,18 @@ get_template_part('index','banner'); ?>
     .row-app { padding-left: 15px !important; padding-right: 15px !important; }
     </style>
 	<div id="container" class="container" ng-app="ScheduleApp">
+        <ul>
+            <li><a href='/schedule-app/#/schedule/'>Fitness - 1st F</a></li>
+            <li><a href='/schedule-app/#/schedule/'>Fellowship - 2nd F</a></li>
+            <li><a href='/3rd-f/'>Faith - 3rd F</a></li>
+
         <div class="row row-app">
             <div class="col-md-3 col-sm-6"> 
                 <h3 ng-show="!showRegion">{{title}}</h3>
                 <select ng-options='r.label for r in regions track by r.label' ng-show="showRegion" ng-model="region" ng-change="setSelected()" class="form-control" style="margin-bottom: 5px;"></select>
+            </div>
+            <div class="col-md-3 col-sm-6"> 
+                <select ng-options='a.label for a in types track by a.label' ng-show="showRegion" ng-model="type" ng-change="setType()" class="form-control" style="margin-bottom: 5px;"></select>
             </div>
         </div>
         <ng-view></ng-view>
@@ -47,4 +55,5 @@ get_template_part('index','banner'); ?>
 <script src="/wp-content/themes/appointment-f3southcharlotte/app/services/calendarService.js"></script>
 <script src="/wp-content/themes/appointment-f3southcharlotte/app/services/regionService.js"></script>
 <script src="/wp-content/themes/appointment-f3southcharlotte/app/services/leaderService.js"></script>
+<script src="/wp-content/themes/appointment-f3southcharlotte/app/services/typeService.js"></script>
 <?php get_footer(); ?>
