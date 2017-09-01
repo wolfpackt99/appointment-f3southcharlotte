@@ -17,7 +17,7 @@ get_template_part('index','banner'); ?>
     .row-app { padding-left: 15px !important; padding-right: 15px !important; }
     </style>
 	<div id="container" class="container" ng-app="ScheduleApp">
-        <a href='/schedule-app/#/schedule/'>Fitness - 1st F</a> | <a href='/3rd-f/'>Faith - 3rd F</a>
+        <p ng-show="showRegion"><a href='/schedule-app/#/schedule/'>1st F - Fitness</a> | <a href='/schedule-app/2nd-f/'>2nd F - Fellowship</a> | <a href='/schedule-app/3rd-f/'>3rd F - Faith</a></p>
 
         <div class="row row-app">
             <div class="col-md-3 col-sm-6"> 
