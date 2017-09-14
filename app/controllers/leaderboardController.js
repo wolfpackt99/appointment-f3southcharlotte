@@ -50,7 +50,7 @@
         $rootScope.types = typeService.types;
 
         $rootScope.region = $rootScope.regions[0];
-        $rootScope.type = $rootScope.type[0];
+        $rootScope.type = '';
 
         vm.selectedRegion = '';
 
