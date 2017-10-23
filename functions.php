@@ -33,6 +33,55 @@ function appointment_f3southcharlotte_theme_css() {
 	
 }
 
+
+/* override categories to try to separate the pax in rss */
+add_filter('the_category_rss','my_custom_cat_rss');
+function my_custom_cat_rss($type = null){
+	if ( empty($type) )
+		$type = get_default_feed();
+	$categories = get_the_category();
+	$tags = get_the_tags();
+	$the_list = '';
+	$cat_names = array();
+	$tag_names = array();
+
+	$filter = 'rss';
+	if ( 'atom' == $type )
+		$filter = 'raw';
+
+	if ( !empty($categories) ) foreach ( (array) $categories as $category ) {
+		$cat_names[] = sanitize_term_field('name', $category->name, $category->term_id, 'category', $filter);
+	}
+
+	if ( !empty($tags) ) foreach ( (array) $tags as $tag ) {
+		$tag_names[] = sanitize_term_field('name', $tag->name, $tag->term_id, 'post_tag', $filter);
+	}
+
+	$cat_names = array_unique($cat_names);
+	$tag_names = array_unique($tag_names);
+
+	foreach ( $cat_names as $cat_name ) {
+		if ( 'rdf' == $type )
+			$the_list .= "\t\t<dc:subject><![CDATA[$cat_name]]></dc:subject>\n";
+		elseif ( 'atom' == $type )
+			$the_list .= sprintf( '<category scheme="%1$s" term="%2$s" />', esc_attr( get_bloginfo_rss( 'url' ) ), esc_attr( $cat_name ) );
+		else
+			$the_list .= "\t\t<category domain='category'><![CDATA[" . @html_entity_decode( $cat_name, ENT_COMPAT, get_option('blog_charset') ) . "]]></category>\n";
+	}
+
+	foreach ( $tag_names as $tag_name ) {
+		if ( 'rdf' == $type )
+			$the_list .= "\t\t<dc:subject><![CDATA[$tag_name]]></dc:subject>\n";
+		elseif ( 'atom' == $type )
+			$the_list .= sprintf( '<category scheme="%1$s" term="%2$s" />', esc_attr( get_bloginfo_rss( 'url' ) ), esc_attr( $tag_name ) );
+		else
+			$the_list .= "\t\t<category domain='pax'><![CDATA[" . @html_entity_decode( $tag_name, ENT_COMPAT, get_option('blog_charset') ) . "]]></category>\n";
+	}
+
+	return $the_list;
+}
+
+
 /*
 	* Let WordPress manage the document title.
 	*/
