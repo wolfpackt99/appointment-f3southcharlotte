@@ -32,7 +32,7 @@ get_template_part('index','banner'); ?>
 						?>
 					<div style="padding:10px 15px 0 15px; border:1px dotted #eee; background:#eef8fa;">
 					<ul>
-						<?php if ($custom_fields["workout_date"][0]) {echo '<li> <strong>When:</strong> ' . $custom_fields["workout_date"][0] . '</li>'; } ?>
+						<?php if ($custom_fields["workout_date"][0]) {echo '<li> <strong>When:</strong><span class="workout_date">' . $custom_fields["workout_date"][0] . '</span></li>'; } ?>
 						<?php if ($custom_fields["qic"][0]) {echo '<li> <strong>QIC:</strong> ' . $custom_fields["qic"][0] . '</li>'; } ?>
 						<?php 
 							

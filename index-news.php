@@ -46,7 +46,7 @@ if($news_setting['home_blog_enabled'] == 0 ) { ?>
 								<a href="<?php echo get_month_link(get_post_time('Y'),get_post_time('m')); ?>">
 								<?php echo get_the_date('M j, Y'); ?></a>
 								<div class="categories gray" style='padding-top: 3px;'>
-									<?php echo the_category(" "); ?>   <?php the_tags('', ' ', ''); ?>
+									<?php echo the_category(" "); ?>
 									<div class="clear"></div>
 								</div>
 							</div>

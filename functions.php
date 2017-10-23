@@ -116,7 +116,7 @@ function the_pax_gen( $meta_boxes ) {
 				'id' => $prefix . 'pax_instructions',
 				'type' => 'heading',
 				'name' => esc_html__( 'Other Instructions', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'List Pax at the workout as tags in the box on the right side of this page for backblasts.  Include the Q, FNGs. PAX name only. No (Q), (FNG)', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'List Pax (including Q) at the workout as tags in the box on the right side of this page for backblasts. PAX name only. No (QIC), (FNG)', 'metabox-online-generator' ),
 				'std' => 'Header Default',
 			)
 		),
