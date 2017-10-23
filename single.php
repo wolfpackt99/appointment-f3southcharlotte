@@ -14,7 +14,7 @@ get_template_part('index','banner'); ?>
 		<!-- tags -->
 		<!-- get the category -->
 					<div class="categories">
-						<?php echo the_category(" "); ?>   <?php the_tags('', ' ', ''); ?>
+						<?php echo the_category(" "); ?>
 						<div class="clear"></div>
 					</div>			
 					<!-- get all the post values and assign them to an array -->
@@ -24,7 +24,8 @@ get_template_part('index','banner'); ?>
 					<!-- this was the custom field workout_name, which was deprecated by tags -->
 					<!-- <?php //$values = get_post_custom_values("workout_name"); echo $values[0]; ?>-->
 					<!-- this was the get_tags until all started populating titles -->
-					<?php //$posttags = wp_get_post_terms( get_the_ID() , 'post_tag' , 'fields=names' ); if( $posttags ) echo implode( ' ' , $posttags ); ?>
+					<?php 
+					//$posttags = wp_get_post_terms( get_the_ID() , 'post_tag' , 'fields=names' ); if( $posttags ) echo implode( ' ' , $posttags ); ?>
 <!-- if custom field workout_name OR ... exists then create this div -->
 					<?php if ($custom_fields["workout_name"][0] || $custom_fields["workout_date"][0] || $custom_fields["qic"][0] || $custom_fields["the_pax"][0])
 						{
@@ -33,7 +34,15 @@ get_template_part('index','banner'); ?>
 					<ul>
 						<?php if ($custom_fields["workout_date"][0]) {echo '<li> <strong>When:</strong> ' . $custom_fields["workout_date"][0] . '</li>'; } ?>
 						<?php if ($custom_fields["qic"][0]) {echo '<li> <strong>QIC:</strong> ' . $custom_fields["qic"][0] . '</li>'; } ?>
-						<?php if ($custom_fields["the_pax"][0]) {echo '<li> <strong>The PAX:</strong> ' . $custom_fields["the_pax"][0] . '</li>'; } ?>
+						<?php 
+							
+							if ($custom_fields["the_pax"][0]) {
+								echo '<li> <strong>The PAX:</strong> ' . $custom_fields["the_pax"][0] . '</li>'; 
+							} 
+							else { 
+								echo get_the_tag_list('<li><strong>Pax:</strong> <span class="the_pax">', ', ', ' </span></li> ');
+							} 
+						?>
 						</ul>
 					</div>
 					<br /><br />

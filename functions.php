@@ -52,25 +52,35 @@ function the_pax_gen( $meta_boxes ) {
 		'autosave' => false,
 		'fields' => array(
 			array(
+				'id' => $prefix . 'qic',
+				'type' => 'text',
+				'name' => esc_html__( 'QIC', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'Workout leader(s). This will show up at the posts top under the "QIC:" heading.', 'metabox-online-generator' ),
+			),
+			array(
 				'id' => $prefix . 'workout_date',
 				'type' => 'text',
 				'name' => esc_html__( 'Workout Date - MM/DD/YYYY', 'metabox-online-generator' ),
 				'desc' => esc_html__( 'Please use this exact format: MM/DD/YYYY This will show up at the posts top under the "When:" heading PLUS be a part of the title.', 'metabox-online-generator' ),
 			),
 			array(
-				'id' => $prefix . 'the_pax',
-				'type' => 'textarea',
-				'name' => esc_html__( 'The Pax - Comma Separated', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'This will show up at the posts top under "The PAX" heading. Separate all by commas. Example: MT, Mermaid, Wingman, TR, etc.', 'metabox-online-generator' ),
-				'rows' => 3,
-			),
-			array(
-				'id' => $prefix . 'qic',
-				'type' => 'text',
-				'name' => esc_html__( 'QIC', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'Workout leader(s). This will show up at the posts top under the "QIC:" heading.', 'metabox-online-generator' ),
-			),
+				'id' => $prefix . 'pax_instructions',
+				'type' => 'heading',
+				'name' => esc_html__( 'Other Instructions', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'List Pax at the workout as tags in the box on the right side of this page for backblasts.  Include the Q, FNGs. PAX name only. No (Q), (FNG)', 'metabox-online-generator' ),
+				'std' => 'Header Default',
+			)
 		),
+		'validation' => array(
+			'rules'    => array(
+			  "{$prefix}qic" => array(
+				'required'  => true,
+			  ),
+			  "{$prefix}workout_date" => array(
+				'required'  => true,
+			  ),
+			)
+		)
 	);
 	return $meta_boxes;
 }
