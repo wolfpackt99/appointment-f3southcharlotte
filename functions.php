@@ -116,7 +116,7 @@ function the_pax_gen( $meta_boxes ) {
 				'id' => $prefix . 'pax_instructions',
 				'type' => 'heading',
 				'name' => esc_html__( 'Other Instructions', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'List Pax (including Q) at the workout as tags in the box on the right side of this page for backblasts. PAX name only. No (QIC), (FNG)', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'List Pax (including Q) at the workout using "PAX" in the box on the right side of this page. PAX name only. No (QIC), (FNG)', 'metabox-online-generator' ),
 				'std' => 'Header Default',
 			)
 		),
@@ -194,6 +194,29 @@ function my_user_tclap() {
 add_action("wp_ajax_my_user_tclap", "my_user_tclap");
 add_action("wp_ajax_nopriv_my_user_tclap", "my_user_tclap");
 
+add_action( 'add_meta_boxes', 'change_tag_meta_box', 0 );
+function change_tag_meta_box() {
+	global $wp_meta_boxes;
+	unset( $wp_meta_boxes['post']['side']['core']['tagsdiv-post_tag'] );
+	add_meta_box('tagsdiv-post_tag',
+		__('PAX'),
+		'post_tags_meta_box',
+		'post',
+		'side',
+		'low');
+}
+
+
+/* Start filtering post editing metaboxes */
+function remove_my_post_metaboxes() {
+	remove_meta_box( 'formatdiv','post','normal' ); // Format Div
+	remove_meta_box( 'postcustom','post','normal' ); // Custom Fields
+	remove_meta_box( 'trackbacksdiv','post','normal' ); // Trackback and Pingback
+	remove_meta_box( 'postexcerpt','post','normal' ); // Custom Excerpt
+	remove_meta_box( 'slugdiv','post','normal' ); // Custom Slug
+  }
+  add_action('admin_menu','remove_my_post_metaboxes');
+  /* End filtering post editing metaboxes */
 
 class TClap_Widget extends WP_Widget{
 	function __construct() {
