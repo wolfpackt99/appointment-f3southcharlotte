@@ -1,7 +1,7 @@
 jQuery(document).ready(function () {
     'use strict';
     var label = jQuery("label:contains('F3 Name')");
-    label.append(" (<a href='#' id='nameChecker'>check availability</a>)");
+    //label.append(" (<a href='#' id='nameChecker'>check availability</a>)");
     jQuery("#nameChecker").click(function () {
         var btn = jQuery(this);
         query(btn);

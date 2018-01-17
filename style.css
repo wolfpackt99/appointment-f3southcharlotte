@@ -13,6 +13,11 @@ You can add your own CSS here.
 
 Click the help icon above to learn more.
 */
+a {
+    color: #336699;
+}
+
+
 .categories {
     margin-bottom: 10px;
 }

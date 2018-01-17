@@ -14,7 +14,7 @@
             },
             {
                 id: 2,
-                label: 'SOB/Indian Land',
+                label: 'SOB/W. Union Co',
                 val: 'SOB'
             },
             {

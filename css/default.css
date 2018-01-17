@@ -69,7 +69,7 @@ ul > li > a:hover, tr.odd a, tr.even a,
 p.wp-caption-text a,  
 .footer-copyright a, .footer-copyright a:hover    
 { 
-	color: #000000; 
+	color: #336699; 
 }
 /* Border colors */
 .footer-widget-tags a:hover , .sidebar-widget > .input-group > .input-group-addon, .sidebar-widget-tags a:hover, .blog-pagination a:hover, .blog-pagination a.active, .tagcloud a:hover, .media-body input[type=submit], .sidebar-widget input[type=submit], .footer-widget-column input[type=submit] { border: 1px solid #ee591f; } 
