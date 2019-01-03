@@ -116,7 +116,7 @@ function the_pax_gen( $meta_boxes ) {
 				'id' => $prefix . 'pax_instructions',
 				'type' => 'heading',
 				'name' => esc_html__( 'Other Instructions', 'metabox-online-generator' ),
-				'desc' => esc_html__( 'List Pax (including Q) at the workout using "PAX" in the box on the right side of this page. PAX name only. No (QIC), (FNG)', 'metabox-online-generator' ),
+				'desc' => esc_html__( 'List Pax (including Q) at the workout using "Tags" in the box on the right side of this page. PAX name only. No (QIC), (FNG)', 'metabox-online-generator' ),
 				'std' => 'Header Default',
 			)
 		),
@@ -194,7 +194,9 @@ function my_user_tclap() {
 add_action("wp_ajax_my_user_tclap", "my_user_tclap");
 add_action("wp_ajax_nopriv_my_user_tclap", "my_user_tclap");
 
-add_action( 'add_meta_boxes', 'change_tag_meta_box', 0 );
+/* 
+Removed for now
+add_action( 'add_meta_boxes', 'change_tag_meta_box', 0 ); */
 function change_tag_meta_box() {
 	global $wp_meta_boxes;
 	unset( $wp_meta_boxes['post']['side']['core']['tagsdiv-post_tag'] );

@@ -46,7 +46,7 @@
                     var json = JSON.parse(item.Description);
                     item.SiteQ = json.SiteQ;
                     item.Meets = json.Meets;
-                    item.DayOfWeek = _.findWhere(dayOfWeek, { day: item.Meets }).val;
+                    item.DayOfWeek = _.findWhere(dayOfWeek, { day: item.Meets }) !== null ? _.findWhere(dayOfWeek, { day: item.Meets }).val : item.Meets;
                     item.LocationHint = json.LocationHint;
                     item.DisplayLocation = json.DisplayLocation;
                     item.Time = json.Time;
@@ -56,7 +56,7 @@
 
                 } catch (e) {
                     item.SiteQ = item.Description;
-                    item.Meets = item.Description;
+                    item.Meets = item.Meets;
                     item.LocationHint = null;
                     item.DisplayLocation = item.Location || "";
                     item.Time = null;
@@ -77,6 +77,7 @@
             item.Slug = slug;
             return;
         }
+
         function massageThisWeek(x) {
             angular.forEach(x, function (item, i) {
                 try {

@@ -16,7 +16,7 @@
                 <td>{{cal.Meets}}<br /><a href="{{cal.SignupLink}}" class="btn btn-xs btn-primary" ng-show="cal.SignupLink">sign up</a></td>
                 <td><a href="https://www.google.com/maps?q={{cal.Location}}"><span class="glyphicon glyphicon-map-marker"></span> {{cal.DisplayLocation}}</a><br /><span ng-show="cal.LocationHint">({{cal.LocationHint}})</span></td>
                 <td>{{cal.SiteQ}}</td>
-                <td>{{cal.Type}}</td>
+                <td>{{cal.Type}}<br/><small>{{ cal.Notes }}</small></td>
                 <td>{{cal.Region}}</td>
             </tr>
             
