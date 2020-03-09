@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     var injectParams = [];
     var regionFactory = function () {
         var factory = {
@@ -14,13 +14,18 @@
             },
             {
                 id: 2,
-                label: 'SOB/W. Union Co',
+                label: 'SOB',
                 val: 'SOB'
             },
             {
                 id: 3,
                 label: 'Union County',
                 val: 'Union County'
+            },
+            {
+                id: 4,
+                label: 'Waxhaw',
+                val: 'Waxhaw'
             }]
         };
         return factory;
